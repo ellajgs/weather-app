@@ -28,6 +28,7 @@ body {
 
 .search {
   width: 100%;
+  max-width:470px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,7 +42,7 @@ body {
   outline: 0;
   background: #ebfffc;
   color: #555;
-  padding: 10px 20px;
+  padding: 10px 15px;
   height: 50px;
   border-radius: 30px;
   flex: 1;
