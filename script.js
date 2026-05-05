@@ -120,7 +120,7 @@ async function checkWeather(e) {
       return;
     }
 
-    // Update forecast row
+    
     for (let i = 0; i < 5; i++) {
       const dayData = dailyForecasts[i];
       if (!dayData) continue;
@@ -129,7 +129,6 @@ async function checkWeather(e) {
       const dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
       const dayIconCode = dayData.weather[0].icon;
 
-      // Use correct icon URL
       const dayIconUrl = `https://openweathermap.org/img/wn/${dayIconCode}@2x.png`;
 
       const dayDiv = document.querySelectorAll(".day")[i];
@@ -139,8 +138,8 @@ async function checkWeather(e) {
       }
 
       const img = dayDiv.querySelector("img");
-      const dayNameElement = dayDiv.querySelector(`.day-${i + 1}`);
-      const weatherElement = dayDiv.querySelector(`.day-${i + 1}-weather`);
+      const dayNameElement = dayDiv.querySelector(`#day-${i + 1}`);
+      const weatherElement = dayDiv.querySelector(`#day-${i + 1}-weather`);
 
       if (!img || !dayNameElement || !weatherElement) {
         console.error(`Elements not found for day ${i + 1}.`);
@@ -148,6 +147,7 @@ async function checkWeather(e) {
       }
 
       img.src = dayIconUrl;
+      console.log("icon url:", dayIconUrl)
       dayNameElement.textContent = dayName;
       weatherElement.textContent = `${Math.round(dayData.main.temp)}°C`;
     }
